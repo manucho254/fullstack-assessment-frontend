@@ -1,0 +1,183 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Professional Trucking App Design System - All colors MUST be HSL */
+
+@layer base {
+  :root {
+    /* Core Colors - Professional trucking theme */
+    --background: 218 25% 97%;
+    --foreground: 215 25% 15%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 215 25% 15%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 215 25% 15%;
+
+    /* Primary - Deep Highway Blue */
+    --primary: 215 85% 25%;
+    --primary-foreground: 0 0% 98%;
+    --primary-glow: 215 85% 35%;
+
+    /* Secondary - Professional Gray */
+    --secondary: 215 15% 92%;
+    --secondary-foreground: 215 25% 15%;
+
+    /* Muted - Subtle backgrounds */
+    --muted: 215 15% 95%;
+    --muted-foreground: 215 15% 45%;
+
+    /* Accent - Highway Orange for alerts */
+    --accent: 35 85% 55%;
+    --accent-foreground: 0 0% 98%;
+
+    /* Status Colors */
+    --success: 142 75% 40%;
+    --success-foreground: 0 0% 98%;
+    --warning: 45 85% 55%;
+    --warning-foreground: 0 0% 98%;
+    --destructive: 0 75% 55%;
+    --destructive-foreground: 0 0% 98%;
+
+    /* Duty Status Colors */
+    --off-duty: 200 15% 65%;
+    --sleeper-berth: 260 45% 55%;
+    --driving: 142 65% 45%;
+    --on-duty: 35 75% 55%;
+
+    /* Interface Elements */
+    --border: 215 15% 88%;
+    --input: 215 15% 92%;
+    --ring: 215 85% 25%;
+
+    --radius: 0.75rem;
+
+    /* Professional Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--primary-glow)));
+    --gradient-hero: linear-gradient(135deg, hsl(215 85% 20%), hsl(215 85% 35%));
+    --gradient-surface: linear-gradient(180deg, hsl(0 0% 100%), hsl(215 15% 98%));
+    
+    /* Shadows */
+    --shadow-subtle: 0 2px 8px -2px hsl(215 25% 15% / 0.08);
+    --shadow-medium: 0 8px 24px -4px hsl(215 25% 15% / 0.12);
+    --shadow-large: 0 20px 40px -8px hsl(215 25% 15% / 0.16);
+    --shadow-glow: 0 0 0 1px hsl(var(--primary) / 0.1), 0 8px 24px -4px hsl(var(--primary) / 0.2);
+
+    /* Animations */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+
+    /* Sidebar - keeping existing structure */
+    --sidebar-background: 215 25% 97%;
+    --sidebar-foreground: 215 25% 25%;
+    --sidebar-primary: 215 85% 25%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 215 15% 92%;
+    --sidebar-accent-foreground: 215 25% 25%;
+    --sidebar-border: 215 15% 88%;
+    --sidebar-ring: 215 85% 25%;
+  }
+
+  .dark {
+    /* Dark theme for night driving */
+    --background: 215 25% 8%;
+    --foreground: 215 15% 92%;
+
+    --card: 215 25% 10%;
+    --card-foreground: 215 15% 92%;
+
+    --popover: 215 25% 10%;
+    --popover-foreground: 215 15% 92%;
+
+    --primary: 215 85% 65%;
+    --primary-foreground: 215 25% 8%;
+    --primary-glow: 215 85% 75%;
+
+    --secondary: 215 25% 15%;
+    --secondary-foreground: 215 15% 92%;
+
+    --muted: 215 25% 12%;
+    --muted-foreground: 215 15% 65%;
+
+    --accent: 35 85% 65%;
+    --accent-foreground: 215 25% 8%;
+
+    --success: 142 65% 55%;
+    --success-foreground: 215 25% 8%;
+    --warning: 45 85% 65%;
+    --warning-foreground: 215 25% 8%;
+    --destructive: 0 65% 65%;
+    --destructive-foreground: 215 25% 8%;
+
+    --off-duty: 200 15% 55%;
+    --sleeper-berth: 260 45% 65%;
+    --driving: 142 65% 55%;
+    --on-duty: 35 75% 65%;
+
+    --border: 215 25% 18%;
+    --input: 215 25% 15%;
+    --ring: 215 85% 65%;
+
+    --gradient-hero: linear-gradient(135deg, hsl(215 85% 15%), hsl(215 85% 25%));
+    --gradient-surface: linear-gradient(180deg, hsl(215 25% 10%), hsl(215 25% 8%));
+
+    --sidebar-background: 215 25% 8%;
+    --sidebar-foreground: 215 15% 92%;
+    --sidebar-primary: 215 85% 65%;
+    --sidebar-primary-foreground: 215 25% 8%;
+    --sidebar-accent: 215 25% 15%;
+    --sidebar-accent-foreground: 215 15% 92%;
+    --sidebar-border: 215 25% 18%;
+    --sidebar-ring: 215 85% 65%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    background: linear-gradient(135deg, hsl(var(--background)) 0%, hsl(var(--muted)) 100%);
+    min-height: 100vh;
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    background: hsl(var(--muted));
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background: hsl(var(--border));
+    border-radius: 3px;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    background: hsl(var(--muted-foreground));
+  }
+}
+
+@layer utilities {
+  .gradient-hero {
+    background: var(--gradient-hero);
+  }
+  
+  .gradient-surface {
+    background: var(--gradient-surface);
+  }
+  
+  .shadow-glow {
+    box-shadow: var(--shadow-glow);
+  }
+  
+  .transition-smooth {
+    transition: var(--transition-smooth);
+  }
+}
