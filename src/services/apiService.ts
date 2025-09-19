@@ -15,15 +15,14 @@ import {
   Report,
 } from "@/types/api";
 
+const __API_URL__ = import.meta.env.VITE_API_URL || "http://localhost:8000";
+
 class ApiService {
   private client: AxiosInstance;
 
   constructor() {
     this.client = axios.create({
-      baseURL:
-        typeof __API_URL__ !== "undefined"
-          ? __API_URL__
-          : "http://localhost:8000",
+      baseURL: __API_URL__,
       timeout: 10000,
       headers: { "Content-Type": "application/json" },
       transformRequest: [
